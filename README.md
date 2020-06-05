@@ -30,13 +30,32 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. Explain how to build stateful class components.
 
+Declare a  class component by extending the React.Component parent class(class ExampleComponent extends React.Component{}). Use a constructor function to set up state. Since extends is being called also call super() which will allow access to ‘this’. Then set up a render/return.
+
 2. Describe the different phases of the component lifecycle.
+
+The birth/mounting phase: This is the phase when the component is being built out from the ground up. A few things are happening here: Whatever initial data you want access to will be defined on the constructor of this phase. Your render method is invoked and componentDidMount gets called as well.
+
+The growth/updating phase: In the Growth/Updating phase you’re updating compnent data. setState can be used to change the component’s state data, forcing a call to render. shouldComponentUpdate is a method one could use here to stop a component from calling render if necessary.
+
+The death/un-mounting phase: Again, self-explanatory, but the unmounting phase includes removing the component from the screen. Component is removed from the screen. componentWillUnmount is called and can be used for any clean up you may need to do.
 
 3. Demonstrate an understanding of class component lifecycle methods.
 
+constructor function: The constructor’s purpose in React is to create components with inciting state data for the initial render. Any other props that the component receives on state can be done through the constructor function. We also used to bind all of our event handlers to the component via the constructor, and now we don’t have to because of some special ESNext syntax that allows us to use arrow functions on our class methods. The following snippet is an example of this.
+
+render method:The render() method is one of the React lifecycle methods that is used to tell React, to return some piece of DOM. The React virtual DOM will then handle the steps to mount those DOM pieces.
+
+The componentDidMount method is a part of the mounting phase in the React Lifecycle. This method gets called as soon as the render method is called the first time, and it begs the question…now what?
+Inside of componentDidMount we can call setState which forces a re-render of our component. This way, any asynchronous actions should be performed inside of our componentDidMount function, especially when it comes to fetching data via HTTP. Data fetching is the de-facto purpose for using componentDidMount within a component because of its position within the component lifecycle.
+
 4. Define stateful logic.
 
+Stateful logic is logic that is built into a component. It can be a function that handles a click event or maybe a function that sets toggle state, or even a function that formats data before it gets displayed. Usually, this kind of logic deals with state in the component. Thus the moniker “stateful logic.”
+
 5. Describe how to test a React component with React Testing Library.
+
+ The framework we use for testing is: arrange, act, assert. These are three steps that we can take to build good tests. First, we “arrange” our test by setting up our code such that it can be tested. Then, we “act” - calling a method or function that returns a result of interest to our test. Finally, with that return we “assert” if our expected return matched the actual return.
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade.
 
