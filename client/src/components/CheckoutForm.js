@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { useForm } from '../hooks/useForm'
 
-const initialValue = {
-  firstName: "",
-  lastName: "",
-  address: "",
-  city: "",
-  state: "",
-  zip: "",
-};
+// const initialValue = {
+//   firstName: "",
+//   lastName: "",
+//   address: "",
+//   city: "",
+//   state: "",
+//   zip: "",
+// };
 
 // This form should be handled by a "useForm" custom hook
 // Build out the logic needed for a form custom hook (see the useForm.js file)
@@ -24,7 +24,7 @@ const CheckoutForm = (props) => {
     city: "",
     state: "",
     zip: "",
-    
+
   })
   // const [values, setValues] = useState(initialValue);
 
@@ -41,12 +41,14 @@ const CheckoutForm = (props) => {
     <>
       <form onSubmit={handleSubmit}>
         <h2>Checkout Form</h2>
-        <label>
+        <label >
           First Name:
           <input
             name="firstName"
             value={checkoutValues.firstName}
             onChange={handleChanges}
+            placeholder="first name here"
+            
           />
         </label>
         <label>
@@ -55,6 +57,7 @@ const CheckoutForm = (props) => {
             name="lastName"
             value={checkoutValues.lastName}
             onChange={handleChanges}
+            placeholder="last name here"
           />
         </label>
         <label>
@@ -63,21 +66,32 @@ const CheckoutForm = (props) => {
             name="address"
             value={checkoutValues.address}
             onChange={handleChanges}
+            placeholder="address here"
           />
         </label>
         <label>
           City:
-          <input name="city" value={checkoutValues.city} onChange={handleChanges} />
+          <input 
+            name="city" 
+            value={checkoutValues.city} 
+            onChange={handleChanges}
+            placeholder="city here"
+          />
         </label>
         <label>
           State:
-          <input name="state" value={checkoutValues.state} onChange={handleChanges} />
+          <input 
+            name="state"
+            value={checkoutValues.state} 
+            onChange={handleChanges} 
+            placeholder="state here"
+          />
         </label>
         <label>
           Zip:
-          <input name="zip" value={checkoutValues.zip} onChange={handleChanges} />
+          <input name="zip" value={checkoutValues.zip} onChange={handleChanges} placeholder="zip code here"/>
         </label>
-        <button>Checkout</button>
+        <button data-testid='button'>Checkout</button>
       </form>
 
       {showSuccessMessage && (
